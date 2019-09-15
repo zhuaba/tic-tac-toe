@@ -1,0 +1,14 @@
+.cube{
+    float:left;
+    height:80px;
+    width:80px;
+    border:1px solid black;
+    box-sizing: content-box;
+    background:#e0e0e0;
+    font-size:40px;
+    padding:0px;
+    margin:-1px -1px 0px 0px;
+}
+.cube:focus{
+    outline: none;
+}

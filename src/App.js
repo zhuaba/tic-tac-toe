@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Cube from "./Cube";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default class App extends React.Component{
+
+  getCube = (i) => {
+    return <Cube value={this.props.cubes[i]} 
+      onClick={() => this.props.onClick(i)}
+    />
+  }
+
+  render(){
+    return (
+      <div >
+        <div className="row">
+          {this.getCube(0)}
+          {this.getCube(1)}
+          {this.getCube(2)}
+        </div>
+        <div className="row">
+          {this.getCube(3)}
+          {this.getCube(4)}
+          {this.getCube(5)}
+        </div>
+        <div className="row">
+          {this.getCube(6)}
+          {this.getCube(7)}
+          {this.getCube(8)}
+        </div>
+      </div>
+    )
+  }
+
+
 }
 
-export default App;
