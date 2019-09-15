@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import App from "./App";
 
-
 export default class Game extends Component{
     constructor(){
         super();
@@ -27,13 +26,12 @@ export default class Game extends Component{
         const history = this.state.history.slice(0, this.state.stepNum + 1);
         const cubes = history[history.length - 1].cubes;
         const arr = cubes.slice();
-
         if(calculateWinner(arr) || arr[i]){
           return;
         }
         arr[i] = this.state.isXNext ? "X" : "O";
         this.setState({
-          history:history.concat([{cubes: arr}]),
+          history: history.concat([{cubes: arr}]),
           isXNext: !this.state.isXNext,
           stepNum: history.length,
         });
@@ -45,12 +43,12 @@ export default class Game extends Component{
         const winner = calculateWinner(cubes);
         let recommendText = winner ? 
             "Winner: " + winner :
-            `the next player is  ` + (isXNext ? "X" : "O");
+            "the next player is  " + (isXNext ? "X" : "O");
         const moves = history.map((item, index) => {
             const desc = index ? "Move #" + index : "Game start~";
             return (
                 <li key={index}>
-                    <a href="#" onClick={()=> this.jumpTo(index)}>{desc}</a>
+                    <a href="#" onClick={()=>this.jumpTo(index)}>{desc}</a>
                 </li>
             ) 
         })
@@ -67,7 +65,6 @@ export default class Game extends Component{
         )
     }
 }
-
 
 function calculateWinner(squares) {
     const lines = [
